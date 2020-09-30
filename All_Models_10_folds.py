@@ -40,7 +40,7 @@ def train_model(model,X,y,k):
     print("Utilizing the following model: ",model_name)
     start_time = timer()
     pipeline = make_pipeline(StandardScaler(),model)
-    score = cross_val_score(pipeline,X,y,cv=k)
+    score = cross_val_score(pipeline,X,y,cv=k,n_jobs=-1)
     model_mean_accuracy[model_name] = np.mean(score)
     print("Model evaluated in ",start_time,"seconds")
     return
@@ -51,13 +51,12 @@ model_list = [RandomForestClassifier(random_state=1),
               xgb.XGBClassifier(random_state=1),
               GradientBoostingClassifier(random_state = 1),
               LGBMClassifier(random_state=1),
-              CatBoostClassifier(task_type="GPU",verbose=False)]
+              CatBoostClassifier(verbose=False)]
 
 # Running through the list of models
 for model in model_list:
     train_model(model,X,y,10)
 
-# Outputting 
+# Outputting
 with open("model_evaluation.json",'w') as outfile:
     json.dump(model_mean_accuracy, outfile)
-    
