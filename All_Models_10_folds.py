@@ -42,7 +42,8 @@ def train_model(model,X,y,k):
     pipeline = make_pipeline(StandardScaler(),model)
     score = cross_val_score(pipeline,X,y,cv=k,n_jobs=-1)
     model_mean_accuracy[model_name] = np.mean(score)
-    print("Model evaluated in ",start_time,"seconds")
+    end_time = timer() - start_time
+    print("Model evaluated all folds in ",end_time,"seconds. Or, on average, ",end_time/k)
     return
 
 # Models to be tested
