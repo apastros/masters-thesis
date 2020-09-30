@@ -22,8 +22,9 @@ specObj_data_df = pd.DataFrame(specObj_data)
 print("Analyzing data with the following features:")
 # specObj_features = ['cModelMag_u', 'cModelMag_g', 'cModelMag_r', 'cModelMag_i',
 #         'cModelMag_z', 'z']
-specObj_features = ['cModelMag_u', 'cModelMag_g', 'cModelMag_r', 'cModelMag_i',
-        'cModelMag_z', 'z','g-r','r-i','i-z','u-g']
+# specObj_features = ['cModelMag_u', 'cModelMag_g', 'cModelMag_r', 'cModelMag_i',
+#         'cModelMag_z', 'z','g-r','r-i','i-z','u-g']
+specObj_features = ['z']
 X = pd.DataFrame(specObj_data_df[specObj_features],columns=specObj_features)
 
 y = specObj_data_df['class']
