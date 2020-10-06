@@ -1,0 +1,1 @@
+{"Model Name": "Mean cross val score", "RandomForestClassifier": 0.9783098509407819, "SVC": 0.9695086847147045, "XGBClassifier": 0.9782018751862724, "GradientBoostingClassifier": 0.9713810906334539, "LGBMClassifier": 0.9770154776802846, "CatBoostClassifier": 0.9765767071916673}

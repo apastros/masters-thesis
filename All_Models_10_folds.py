@@ -60,5 +60,5 @@ model_list = [RandomForestClassifier(random_state=1),
 # Running through the list of models
 for model in model_list:
     train_model(model,X,y,10)
-    
+
 print(model_mean_accuracy)
